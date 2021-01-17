@@ -3,12 +3,74 @@ import java.util.Scanner;
 
 public class Pra0104 {
     public static void main(String[] args) {
-        //使用系统的
-        int[] arr={1,2,3,4};
-        int[] newArr=Arrays.copyOf(arr,arr.length);
-        System.out.println(Arrays.toString(newArr));
+        int[] arr={9,5,2,7};
+        for(int bound=0;bound<arr.length;bound++){
+            for(int cur=arr.length-1;cur>bound;cur--){
+                if(arr[cur-1]>arr[cur]){
+                    int tem=arr[cur-1];
+                    arr[cur-1]=arr[cur];
+                    arr[cur]=tem;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
+//    public static void main(String[] args) {
+//        int[] arr={9,5,2,7};
+//        bubbleSort(arr);
+//        System.out.println(Arrays.toString(arr));
+//    }
+//
+//    public static void bubbleSort(int[] arr) {
+//        for(int bound=0;bound<arr.length;bound++){
+//            for(int cur=arr.length-1;cur>bound;cur--){
+//                if(arr[cur-1]>arr[cur]){
+//                    int tem=arr[cur-1];
+//                    arr[cur-1]=arr[cur];
+//                    arr[cur]=tem;
+//                }
+//            }
+//        }
+//    }
+//}
+//    public static void main(String[] args) {
+//        //使用系统的
+//        int[] arr={1,2,3,4};
+//        for(int i=0;i<arr.length;i++){
+//            for(int j=0;j<arr.length-i-1;j++){
+//                if(arr[j]<arr[j+1]){
+//                    int tem=arr[j];
+//                    arr[j]=arr[j+1];
+//                    arr[j+1]=tem;
+//                }
+//            }
+//        }
+//        for(int bound=0;bound<arr.length;bound++){
+//            //极端情况下cur和bound都是0，那么cur-1就是负的，出现越界
+//            for(int cur=arr.length-1;cur>bound;cur--){
+//                if(arr[cur-1]>arr[cur]){
+//                    int tem=arr[cur-1];
+//                    arr[cur-1]=arr[cur];
+//                    arr[cur]=tem;
+//                }
+//            }
+//        }
+//        System.out.println(Arrays.toString(arr));
+//        int[] newArr=Arrays.copyOf(arr,arr.length);
+//        System.out.println(Arrays.toString(newArr));
+//    }
+//    public static void sort(int[] arr){
+//        int left=0;
+//        int right=arr.length-1;
+//        while (left<right){
+//            while(left<right&&arr[left]%2==0){
+//
+//            }
+//        }
+//    }
+//}
+
 //    public static void main(String[] args) {
 //        //实现自己的数组拷贝
 //        int[] arr={1,2,3,4};
