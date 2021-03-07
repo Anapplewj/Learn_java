@@ -1,4 +1,4 @@
-package Pra0305_2.Operations;
+package Pra0305_2.IOperations;
 import Pra0305_2.BookList;
 
 import java.util.Scanner;
@@ -16,6 +16,7 @@ public class BorrowOperation implements IOperation{
             if(bookList.getBooks(i).getName().equals(name)){
                 if(bookList.getBooks(i).getBorrowed()==true){
                     System.out.println("这本书被借出去了，看看其他的书吧~");
+                    return;
                 }else{
                     bookList.getBooks(i).setBorrowed(true);
                     System.out.println("借阅成功！");
