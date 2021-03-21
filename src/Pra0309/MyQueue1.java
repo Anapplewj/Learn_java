@@ -11,16 +11,17 @@ public class MyQueue1 {
     private int tail=0;
     private int size=0;
     //入队
-    public void offer(int val){
+    public boolean offer(int val){
         if(size==data.length){
-            return;
-        }
-        if(tail==data.length-1){
-            tail=0;
+            return false;
         }
         data[tail]=val;
         tail++;
         size++;
+        if(tail==data.length){
+            tail=0;
+        }
+        return true;
     }
     //出队
     public Integer poll(){
@@ -30,6 +31,9 @@ public class MyQueue1 {
         int ret=data[head];
         head++;
         size--;
+        if(head==data.length){
+            head=0;
+        }
         return ret;
     }
     //取队首元素
