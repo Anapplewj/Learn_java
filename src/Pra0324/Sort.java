@@ -184,7 +184,7 @@ public class Sort {
     }
     public static void main(String[] args) {
         int[] arr={5,2,7,3,6,8};
-        quickSort2(arr);
+        quickSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 }
