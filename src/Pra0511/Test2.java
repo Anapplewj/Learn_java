@@ -26,7 +26,7 @@ public class Test2{
             if(nums<=4){
                 List<Integer> cur=list.get(0);
                 int len=cur.size();
-                int cur=0;
+//                int cur=0;
                 for(int i=0;i<input.length();i++){
                     if(input.charAt(i)=='U'){
 
