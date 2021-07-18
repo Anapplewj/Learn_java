@@ -1,5 +1,8 @@
 package Pra0717;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class MyBinaryTree {
     //先序遍历
     public void prevOrder(TreeNode root){
@@ -82,5 +85,53 @@ public class MyBinaryTree {
             return result;
         }
         return getNode(root.right,val);
+    }
+
+    public void levelOrderTraversal(TreeNode root){
+        Queue<TreeNode> queue=new LinkedList<>();
+        if(root==null){
+            return;
+        }
+        queue.offer(root);
+        while(!queue.isEmpty()){
+            TreeNode cur=queue.poll();
+            System.out.println(cur.val);
+            if(cur.left!=null){
+                queue.offer(cur.left);
+            }
+            if(cur.right!=null){
+                queue.offer(cur.right);
+            }
+        }
+    }
+    public boolean isCompleteTree(TreeNode root){
+        if(root==null){
+            return true;
+        }
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+        boolean twoLevel=false;
+        while(!queue.isEmpty()){
+            TreeNode cur=queue.poll();
+            if (!twoLevel) {
+                if(cur.left!=null&&cur.right!=null){
+                    twoLevel=true;
+                    queue.offer(cur.left);
+                    queue.offer(cur.right);
+                }else if(cur.left!=null&&cur.right==null){
+                    twoLevel=true;
+                    queue.offer(cur.left);
+                }else if(cur.left==null&&cur.right!=null){
+                    return false;
+                }else if(cur.left==null&&cur.right==null){
+                    twoLevel=true;
+                }
+            }else{
+                if(cur.left!=null||cur.right!=null){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
